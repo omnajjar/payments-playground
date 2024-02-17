@@ -50,6 +50,8 @@ export class AppService {
       ),
     });
 
+    console.log('Session Checkout created', session, '\n\n');
+
     return session;
   }
 
@@ -58,6 +60,9 @@ export class AppService {
       'APP_PAYMENT_SUCCESS_REDIRECT_URL',
     );
 
+    console.log('Payment Success');
+    console.log('Redirecting to:', appSuccessPaymentRedirectUrl, '\n\n');
+
     res.redirect(appSuccessPaymentRedirectUrl);
   }
 
@@ -65,6 +70,9 @@ export class AppService {
     const appFailedPaymentRedirectUrl = this.configService.get<string>(
       'APP_PAYMENT_FAIL_REDIRECT_URL',
     );
+
+    console.log('Payment Failed');
+    console.log('Redirecting to:', appFailedPaymentRedirectUrl, '\n\n');
 
     res.redirect(appFailedPaymentRedirectUrl);
   }
